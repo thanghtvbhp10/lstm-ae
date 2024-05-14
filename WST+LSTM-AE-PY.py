@@ -9,10 +9,9 @@ from keras.layers import LSTM
 from keras.layers import Dense
 from keras.layers import RepeatVector
 from keras.layers import TimeDistributed
-from keras.utils import plot_model
 
 # Import data from CSV
-data = pd.read_csv("C:/Users/thang/Downloads/StockPAD-master/StockPAD-master/data_new/2BCG.csv")
+data = pd.read_csv("1HPG.csv")
 
 # Extract specific columns
 data = data.iloc[:, [0, 2]]  # Assuming columns 1 and 5 (0-based indexing)
@@ -27,7 +26,7 @@ plt.figure()
 plt.hist(y, bins=20)  # Adjust the number of bins as needed
 plt.xlabel('Price')
 plt.ylabel('Number of Samples')
-# plt.show()
+plt.show()
 
 
 # Calculate log-returns
@@ -40,7 +39,7 @@ plt.figure()
 plt.hist(log_returns, bins=20)  # Adjust the number of bins as needed
 plt.xlabel('Log return')
 plt.ylabel('Number of Samples')
-# plt.show()
+plt.show()
 
 allSignals = log_returns
 
@@ -54,9 +53,9 @@ tstart = 0
 t = np.arange(len(allSignals)) / fs + tstart
 plt.plot(t, allSignals)
 plt.title("Cumulative Wind-Turbine Vibration Monitoring")
-plt.xlabel("Time (sec) -- 6 seconds per day for 50 days")
+plt.xlabel("Time (sec) --  for 240 days")
 plt.ylabel("Voltage")
-# plt.show()
+plt.show()
 
 frameSize = 1 * fs
 frameRate = 0.5 * fs
